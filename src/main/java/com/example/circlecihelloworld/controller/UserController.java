@@ -32,5 +32,9 @@ public class UserController {
         usersData.addUser(user);
     }
 
-   
+    @GetMapping(value = "/update-user")
+    public User updateUser(){
+        var user=new User("Jordany","Arnaud","ADMIN");
+        return usersData.updateUser(user);
+    }
 }
