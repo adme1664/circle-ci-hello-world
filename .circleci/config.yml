@@ -24,6 +24,8 @@ jobs:
       - run:
           name: Test
           command: mvn test
+    post-steps:
+      - jira/notify
 
 workflows:
   # Below is the definition of your workflow.
@@ -33,8 +35,4 @@ workflows:
   sample: 
     jobs:
       - build-and-test
-  build:
-    jobs:
-      - build:
-          post-steps:
-            - jira/notify
+
