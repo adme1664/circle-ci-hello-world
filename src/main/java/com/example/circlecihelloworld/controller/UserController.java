@@ -10,7 +10,7 @@ import java.util.List;
 @RestController
 public class UserController {
 
-    private UsersData usersData;
+    private final UsersData usersData;
 
     public UserController(UsersData usersData) {
         this.usersData = usersData;
@@ -18,12 +18,12 @@ public class UserController {
 
     @GetMapping(value = "/users")
     public List<User> listOfUsers() {
-        return usersData.getUsers();
+        return usersData.listOfUsers();
     }
 
     @GetMapping(value = "/first")
     public User getFirstUser() {
-        return UsersData.listOfUsers().get(0);
+        return usersData.listOfUsers().get(0);
     }
 
     @GetMapping(value = "/add-user")
@@ -38,4 +38,6 @@ public class UserController {
         var user=new User("Jordany","Pierre","OK");
         return usersData.updateUser(user);
     }
+
+
 }

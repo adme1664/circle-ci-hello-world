@@ -22,9 +22,10 @@ public class UsersData {
         users=new ArrayList<>();
     }
 
-    public static List<User> listOfUsers() {
-        return Arrays.asList(new User("Adme", "Jean Jeff", "ADMIN"),
-                new User("Baby", "Adme", "ADMIN"));
+    public  List<User> listOfUsers() {
+        users.add(new User("Adme", "Jean Jeff", "ADMIN"));
+        users.add (new User("Baby", "Adme", "ADMIN"));
+        return users;
     }
 
     public void addUser(User user) {
