@@ -1,14 +1,47 @@
 package com.example.circlecihelloworld.utils;
 
 import com.example.circlecihelloworld.models.User;
+import lombok.Data;
+import org.springframework.stereotype.Component;
 
 import java.util.Arrays;
 import java.util.List;
 
+@Data
+@Component
 public class UsersData {
 
-    public static final List<User> listOfUsers() {
+    private List<User> users;
+
+    public UsersData(List<User> users) {
+        this.users = users;
+    }
+
+    public UsersData() {
+    }
+
+    public static List<User> listOfUsers() {
         return Arrays.asList(new User("Adme", "Jean Jeff", "ADMIN"),
                 new User("Baby", "Adme", "ADMIN"));
+    }
+
+    public void addUser(User user) {
+        this.users.add(user);
+    }
+
+    public User updateUser(User user) {
+        return users.stream().filter(user1 -> user1.getFirstName().equalsIgnoreCase(user.getFirstName()))
+                .map(user1 -> {
+                    user1.setFirstName(user.getFirstName());
+                    user1.setPrivilege(user.getPrivilege());
+                    user1.setLastName(user.getLastName());
+                    return user1;
+                }).findAny().orElseThrow();
+
+    }
+
+    public User getUser(User user) {
+        return users.stream().filter(user1 -> user1.getFirstName().equalsIgnoreCase(user.getFirstName()))
+                .findAny().orElseThrow();
     }
 }
