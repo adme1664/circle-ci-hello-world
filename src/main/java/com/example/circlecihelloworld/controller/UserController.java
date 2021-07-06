@@ -27,9 +27,10 @@ public class UserController {
     }
 
     @GetMapping(value = "/add-user")
-    public void addUser() {
+    public String addUser() {
         var user = new User("Jordany", "Arnaud", "USERS");
         usersData.addUser(user);
+        return "User add succesfully";
     }
 
     @GetMapping(value = "/update-user")
