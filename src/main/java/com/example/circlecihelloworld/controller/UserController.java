@@ -14,4 +14,9 @@ public class UserController {
     public List<User> listOfUsers(){
         return UsersData.listOfUsers();
     }
+    
+    @GetMapping(value="/first")
+    public User getFirstUser(){
+        return UsersData.listOfUsers().get(0);
+    }
 }
