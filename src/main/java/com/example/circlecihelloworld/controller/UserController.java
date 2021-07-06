@@ -18,7 +18,7 @@ public class UserController {
 
     @GetMapping(value = "/users")
     public List<User> listOfUsers() {
-        return UsersData.listOfUsers();
+        return usersData.getUsers();
     }
 
     @GetMapping(value = "/first")
@@ -28,14 +28,14 @@ public class UserController {
 
     @GetMapping(value = "/add-user")
     public String addUser() {
-        var user = new User("Jordany", "Arnaud", "USERS");
+        var user = new User("Adme", "Jean Jeff", "USERS");
         usersData.addUser(user);
         return "User add succesfully";
     }
 
     @GetMapping(value = "/update-user")
     public User updateUser(){
-        var user=new User("Jordany","Arnaud","ADMIN");
+        var user=new User("Jordany","Pierre","OK");
         return usersData.updateUser(user);
     }
 }

@@ -4,6 +4,7 @@ import com.example.circlecihelloworld.models.User;
 import lombok.Data;
 import org.springframework.stereotype.Component;
 
+import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
 
@@ -18,6 +19,7 @@ public class UsersData {
     }
 
     public UsersData() {
+        users=new ArrayList<>();
     }
 
     public static List<User> listOfUsers() {
